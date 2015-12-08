@@ -18,3 +18,11 @@ else
   echo "Installing VIM profile..."
   ln -s $PWD/profile/vimrc ~/.vimrc
 fi
+
+if [ -e ~/scripts ]; then
+  echo "Scripts already installed".;
+else
+  echo "Installing scripts..."
+  ln -s $PWD/scripts ~/scripts
+fi
+

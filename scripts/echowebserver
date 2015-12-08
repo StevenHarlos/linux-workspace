@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+if (process.argv.length != 3) {
+  console.log("Usage: echowebserver <port>");
+  process.exit();
+}
+var PORT = parseInt(process.argv[2]);
+
+var requestHandler = function(request, response) {
+	console.log(request.headers);
+	response.statusCode=200;
+	response.write("echo.");
+	response.end();
+	console.log('------------------------------------');	
+}
+
+require('http').createServer(requestHandler).listen(PORT, function () {
+	console.log('listening...');
+	console.log('------------------------------------');	
+});

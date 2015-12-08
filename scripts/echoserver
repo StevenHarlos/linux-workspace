@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+if (process.argv.length != 3) {
+  console.log("Usage: echoserver <port>");
+  process.exit();
+}
+var PORT = parseInt(process.argv[2]);
+
+var handler = function (sock) {
+	sock.setEncoding('utf8');
+	sock.on('data', function(data) {
+		process.stdout.write(data);
+	});
+	sock.on('close', function() {
+		console.log('\n------------------------------------');
+	});
+}
+
+require('net').createServer(handler).listen(PORT, function() {
+	console.log('listening...');
+	console.log('------------------------------------');
+});

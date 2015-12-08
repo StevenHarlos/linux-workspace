@@ -1,0 +1,27 @@
+#!/usr/bin/python
+
+import pika
+import sys
+
+'''
+pushmessage.py
+
+sends a single message to the queue for processing
+
+'''
+
+if (3 != len(sys.argv)):
+  print "Usage: pushmessage <queuename> <msgbody>"
+  quit(1);
+
+MQ_HOST ='localhost' 
+MQ_EXCHANGE = ''
+MQ_QUEUE = sys.argv[1]
+DATA = sys.argv[2]
+
+connection = pika.BlockingConnection(pika.ConnectionParameters(MQ_HOST))
+channel = connection.channel()
+channel.queue_declare(queue=MQ_QUEUE)
+channel.basic_publish(exchange=MQ_EXCHANGE,
+                      routing_key=MQ_QUEUE,
+                      body=DATA)

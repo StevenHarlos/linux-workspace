@@ -1,0 +1,31 @@
+#!/usr/bin/python
+
+import pika
+import sys
+
+'''
+popmessage.py
+
+reads a single message from the queue
+
+'''
+
+if (2 != len(sys.argv)):
+  print "Usage: popmessage <queuename>"
+  quit(1)
+
+MQ_HOST ='localhost' 
+MQ_EXCHANGE = ''
+MQ_QUEUE = sys.argv[1]
+
+def on_message(channel, method_frame, header_frame, body):
+  print body
+  channel.basic_ack(delivery_tag=method_frame.delivery_tag)
+  channel.stop_consuming()
+  channel.close()
+  quit(0)
+
+connection = pika.BlockingConnection(pika.ConnectionParameters(MQ_HOST))
+channel = connection.channel()
+channel.queue_declare(queue=MQ_QUEUE)
+channel.basic_consume(on_message, MQ_QUEUE)

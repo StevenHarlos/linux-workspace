@@ -1,0 +1,14 @@
+"*":
+  core:
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
+  editor:
+    fontSize: 10
+    preferredLineLength: 120
+    tabType: "soft"
+  "exception-reporting":
+    userId: "8a441668-36ba-6616-f082-fff121b8137a"
+  welcome:
+    showOnStartup: false

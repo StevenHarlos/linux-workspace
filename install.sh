@@ -9,7 +9,7 @@ elif [ -e ~/.bash_profile ]; then
 else
   echo "Installing profile..."
   ln -s $PWD/profile/bash_profile ~/.bash_profile
-  echo "if [ -f ~/.bash_profile ]; then source ~/.bash_profile fi" >> ~/.bashrc
+  echo "if [ -f ~/.bash_profile ]; then source ~/.bash_profile; fi" >> ~/.bashrc
 fi
 
 if [ -e ~/.vimrc ]; then
@@ -17,6 +17,13 @@ if [ -e ~/.vimrc ]; then
 else
   echo "Installing VIM profile..."
   ln -s $PWD/profile/vimrc ~/.vimrc
+fi
+
+if [ -e ~/.gitconfig ]; then
+  echo "GIT config already installed."  
+else
+  echo "Installing GIT config..."
+  ln -s $PWD/profile/gitconfig ~/.gitconfig
 fi
 
 if [ -e ~/scripts ]; then

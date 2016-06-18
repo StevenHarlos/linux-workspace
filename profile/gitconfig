@@ -1,0 +1,8 @@
+[user]
+	name = Gregory Higginson
+	email = GHigginson@appneta.com
+[help]
+	autocorrect = 1
+[core]
+	autocrlf = input
+	editor = vim

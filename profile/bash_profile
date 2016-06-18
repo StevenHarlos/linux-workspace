@@ -56,6 +56,6 @@ PS4='+ '
 shopt -s cdspell   # ignore minor spelling errors in cd
 
 # Environmental Variables
-PATH=$PATH:$HOME/scripts
+PATH=$PATH:$HOME/bin
 export PATH
 

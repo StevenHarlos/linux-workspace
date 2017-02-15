@@ -1,0 +1,14 @@
+{
+  "name": "@ghigginson/linux-workspace-bin",
+  "version": "1.0.0",
+  "description": "Declares dependencies for the various scripts in this folder",
+  "author": {
+    "name": "ghigginson",
+    "url": "https://github.com/GHigginson"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.14.1",
+    "express-ntlm": "~2.1.5"
+  }
+}

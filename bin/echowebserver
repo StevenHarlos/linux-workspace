@@ -7,14 +7,15 @@ if (process.argv.length != 3) {
 var PORT = parseInt(process.argv[2]);
 
 var requestHandler = function(request, response) {
-	console.log(request.headers);
-	response.statusCode=200;
-	response.write("echo.");
-	response.end();
-	console.log('------------------------------------');	
+  console.log(request.method + " " + request.url);
+  console.log(request.headers);
+  response.statusCode=200;
+  response.write("echo.");
+  response.end();
+  console.log('------------------------------------');	
 }
 
 require('http').createServer(requestHandler).listen(PORT, function () {
-	console.log('listening...');
-	console.log('------------------------------------');	
+  console.log('listening...');
+  console.log('------------------------------------');	
 });
